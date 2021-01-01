@@ -1,0 +1,10 @@
+export const SIGN_IN = '/api/v1/auth/login';
+export const SIGN_OUT = '/api/accounts/Logout';
+export const GET_ALL_POSTS = '/api/v1/posts';
+export const GET_ALL_POSTS_ADMIN = '/api/v1/posts/all';
+export const SIGN_UP = '/api/v1/auth/register';
+export const GET_PROFILE = '/api/v1/auth/profile';
+export const DELETE_POST = '/api/v1/posts';
+export const ADD_POST = '/api/v1/posts';
+export const CHANGE_POST = '/api/v1/posts/approve';
+export const GET_ALL_USERS = '/api/v1/admin/users';

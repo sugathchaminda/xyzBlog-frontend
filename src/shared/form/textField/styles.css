@@ -1,0 +1,57 @@
+.customTextField .inputFieldLabel {
+  color: #000000;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 18px;
+  margin-bottom: 4px;
+  font-weight: bold;
+  font-style: italic;
+  font-family: "Helvetica";
+}
+.customTextField .inputFieldValue {
+  color: #000000;
+  font-family: "Helvetica";
+  font-size: 15px;
+  font-weight: 300;
+  letter-spacing: 0;
+  line-height: 18px;
+}
+.customTextField .inputField {
+  border: 1px solid #797979;
+  border-radius: 3px;
+  background-color: #ffffff;
+  padding: 14px 14px 14px 12px;
+  width: 100%;
+  height: 46px;
+  color: #000000;
+  font-family: "Helvetica";
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 18px;
+}
+/* Change Autocomplete styles in Chrome*/
+.customTextField .inputField input:-webkit-autofill,
+.customTextField .inputField input:-webkit-autofill:hover,
+.customTextField .inputField input:-webkit-autofill:focus,
+.customTextField .inputField textarea:-webkit-autofill,
+.customTextField .inputField textarea:-webkit-autofill:hover,
+.customTextField .inputField textarea:-webkit-autofill:focus,
+.customTextField .inputField select:-webkit-autofill,
+.customTextField .inputField select:-webkit-autofill:hover,
+.customTextField .inputField select:-webkit-autofill:focus {
+  -webkit-text-fill-color: #000000;
+  /* -webkit-box-shadow: 0 0 0px 1000px #000 inset; */
+  transition: background-color 5000s ease-in-out 0s;
+}
+.customTextField .inputField.error {
+  border: 2px solid rgba(225, 0, 0, 1);
+}
+.customTextField .inputField.valid {
+  border: 2px solid #5ba943;
+}
+.customTextField .MuiFormHelperText-root {
+  color: rgba(225, 0, 0, 1);
+}
+.customTextField .MuiInputBase-root.Mui-disabled {
+  color: #5c5454;
+}

@@ -1,0 +1,26 @@
+#footer {
+  padding-right: 1rem;
+  padding-left: 1rem;
+  text-align: center;
+  background-color: #702c75;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  text-align: center;
+  padding-top: 1.5rem;
+  padding: 1.5rem;
+}
+
+span a {
+  text-decoration: none;
+  cursor: pointer;
+  color: white;
+}
+
+@media only screen and (min-width: 600px) {
+  #footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+}

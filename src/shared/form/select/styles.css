@@ -1,0 +1,48 @@
+.customSelectField .selectFieldLabel {
+  color: #000000;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 18px;
+  margin-bottom: 4px;
+}
+.customSelectField .selectFieldvalue {
+  color: #000000;
+  font-family: "Helvetica";
+  font-size: 15px;
+  font-weight: 300;
+  letter-spacing: 0;
+  line-height: 18px;
+}
+.customSelectField .selectField {
+  border: 1px solid #797979;
+  border-radius: 3px;
+  background-color: #ffffff;
+  padding: 14px 0px 14px 12px;
+  width: 320px;
+  height: 46px;
+  color: #000000;
+  font-family: "Helvetica";
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 18px;
+}
+.customSelectField .MuiGrid-root > svg.MuiSvgIcon-root,
+.customSelectField svg.MuiSvgIcon-root {
+  fill: #5d5d5d;
+}
+.customSelectField .selectField .MuiSelect-selectMenu {
+  color: #000000;
+  font-family: "Helvetica";
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 18px;
+}
+.customSelectField .selectField.error {
+  border: 2px solid rgba(225, 0, 0, 1);
+}
+.customSelectField .selectField.valid {
+  border: 2px solid #5ba943;
+}
+.customSelectField .MuiFormHelperText-root {
+  color: rgba(225, 0, 0, 1);
+}

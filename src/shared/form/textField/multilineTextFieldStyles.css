@@ -1,0 +1,31 @@
+.multilineTextField .inputFieldLabel {
+  color: #000000;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 18px;
+  margin-bottom: 4px;
+}
+.multilineTextField .inputField {
+  border: 1px solid #797979;
+  border-radius: 3px;
+  background-color: #ffffff;
+  padding: 14px 14px 14px 12px;
+  width: 320px;
+  height: 100px;
+  color: #000000;
+  font-family: "Helvetica";
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 18px;
+  align-self: start;
+  padding-top: 30px;
+}
+.multilineTextField .inputField.error {
+  border: 2px solid rgba(225, 0, 0, 1);
+}
+.multilineTextField .inputField.valid {
+  border: 2px solid #5ba943;
+}
+.multilineTextField .MuiFormHelperText-root {
+  color: rgba(225, 0, 0, 1);
+}

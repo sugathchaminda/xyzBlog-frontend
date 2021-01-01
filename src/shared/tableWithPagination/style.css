@@ -1,0 +1,51 @@
+#tableWithPagination .MuiTableCell-root {
+  border-right: 1px solid #f3f3f3;
+}
+#tableWithPagination .MuiTableCell-root:last-child {
+  border-right: none;
+}
+#tableWithPagination .MuiTableCell-root {
+  padding: 3px;
+  font-size: 12px;
+}
+#tableWithPagination .MuiTableCell-head {
+  font-weight: 700;
+}
+#tableWithPagination.walletList
+  .MuiTableBody-root
+  .MuiTableCell-root:last-child {
+  width: 50px;
+  text-align: center;
+}
+
+/* Table styling for Receipt List */
+#tableWithPagination.receiptList .MuiTableCell-root:last-child {
+  text-align: right;
+}
+#tableWithPagination.receiptList .table.link {
+  font-size: 12px;
+}
+/* Table styling for Transponder List */
+#tableWithPagination.transponderList .MuiTableCell-root:last-child {
+  width: 50px;
+  text-align: center;
+}
+
+/* Table styling for Wallet List*/
+#tableWithPagination.walletList
+  .transponderList
+  .lineItems
+  .recentTransaction
+  .MuiTableBody-root
+  .MuiTableRow-root
+  .MuiTableCell-root:nth-child(3) {
+  width: 50px;
+}
+
+#tablePagination.lineItems {
+  visibility: hidden;
+}
+
+#tablePagination.recentTransaction {
+  visibility: hidden;
+}
