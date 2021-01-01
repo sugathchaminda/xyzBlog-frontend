@@ -31,9 +31,10 @@ const useStyles = makeStyles(() => createStyles({
 
 interface Props {
   allUsersResponseData: object;
+  assignAdminRole: (values: any) => void;
 }
 
-const ManageUser: React.FunctionComponent<Props> = ({ allUsersResponseData }) => {
+const ManageUser: React.FunctionComponent<Props> = ({ allUsersResponseData, assignAdminRole }) => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [toDeleteId, setToDeleteId] = useState('');
@@ -64,21 +65,21 @@ const ManageUser: React.FunctionComponent<Props> = ({ allUsersResponseData }) =>
           <TableCell>
             <Button
               variant="contained"
-              label="Approve"
+              label="Assign Admin"
               className="primary"
-              style={{ width: '150px', marginRight: '10px' }}
-              // onClick={() => changePostData('Active', id)}
+              style={{ width: '250px', marginRight: '10px' }}
+              onClick={() => assignAdminRole(id)}
             />
             <Button
               variant="contained"
-              label="Reject"
+              label="Unblock"
               className="primary"
               style={{ width: '150px', marginRight: '10px' }}
               // onClick={() => changePostData('Rejected', id)}
             />
             <Button
               variant="contained"
-              label="Delete"
+              label="Block"
               onClick={() => {
                 setOpen(true);
                 setToDeleteId(id);

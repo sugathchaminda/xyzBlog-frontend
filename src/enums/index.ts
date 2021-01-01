@@ -4,6 +4,7 @@ export enum httpMethods {
   put = 'put',
   get = 'get',
   delete = 'delete',
+  patch = 'patch',
 }
 
 export enum AutoCapitalizeTypes {

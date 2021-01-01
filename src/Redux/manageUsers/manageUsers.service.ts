@@ -6,6 +6,8 @@ import * as Endpoints from 'constants/endpoints.constant';
 
 class DashboardHttp {
   static getAllUsers = () => Http.setMethod(httpMethods.get).setUrl(Endpoints.GET_ALL_USERS).setToken(api.getToken()).request();
+
+  static assignAdminRole = (userId) => Http.setMethod(httpMethods.patch).setUrl(`${Endpoints.ASSIGN_ADMIN_ROLE}/${userId}`).setToken(api.getToken()).request();
 }
 
 export default DashboardHttp;

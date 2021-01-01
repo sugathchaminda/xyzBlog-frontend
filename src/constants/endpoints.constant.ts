@@ -8,3 +8,4 @@ export const DELETE_POST = '/api/v1/posts';
 export const ADD_POST = '/api/v1/posts';
 export const CHANGE_POST = '/api/v1/posts/approve';
 export const GET_ALL_USERS = '/api/v1/admin/users';
+export const ASSIGN_ADMIN_ROLE = '/api/v1/admin/update/userRole';

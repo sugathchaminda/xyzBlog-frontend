@@ -5,9 +5,19 @@ interface Props extends RouteComponentProps {
   allUsersStart: () => any;
   getUsersStatus: boolean;
   getUsersResponse: any,
+  assignAdminRoleStartFunc: (request: object) => any;
+  getAssignAdminRoleStatus: boolean;
+  getAssignAdminRoleResponse: any,
 }
 
-const Dashboard: React.FunctionComponent<Props> = ({ allUsersStart, getUsersStatus, getUsersResponse }) => {
+const Dashboard: React.FunctionComponent<Props> = ({
+  allUsersStart,
+  getUsersStatus,
+  getUsersResponse,
+  assignAdminRoleStartFunc,
+  getAssignAdminRoleStatus,
+  getAssignAdminRoleResponse,
+}) => {
   const [allUsersResponse, setAllUsersResponse] = useState({});
 
   useEffect(() => {
@@ -20,10 +30,21 @@ const Dashboard: React.FunctionComponent<Props> = ({ allUsersStart, getUsersStat
     }
   }, [getUsersStatus, getUsersResponse]);
 
+  useEffect(() => {
+    if (getAssignAdminRoleStatus) {
+      allUsersStart();
+    }
+  }, [getAssignAdminRoleStatus, getAssignAdminRoleResponse]);
+
+  const assignAdminRoleFunc = (userId: string) => {
+    assignAdminRoleStartFunc({ userId });
+  };
+
   return (
     <div>
       <ManageUserComponent
         allUsersResponseData={allUsersResponse}
+        assignAdminRole={assignAdminRoleFunc}
       />
     </div>
   );

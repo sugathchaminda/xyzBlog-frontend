@@ -12,7 +12,19 @@ const selectGetUsersResponse = () => createSelector(
   (currentState) => currentState.getAllUsers,
 );
 
+const selectGetAssignAdminRoleStatus = () => createSelector(
+  selectManageUsersState,
+  (currentState) => currentState.assignAdminRoleStatus,
+);
+
+const selectGetAssignAdminRoleResponse = () => createSelector(
+  selectManageUsersState,
+  (currentState) => currentState.assignAdminRole,
+);
+
 export {
   selectGetUsersStatus,
   selectGetUsersResponse,
+  selectGetAssignAdminRoleStatus,
+  selectGetAssignAdminRoleResponse,
 };
