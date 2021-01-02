@@ -44,6 +44,11 @@ interface TableConfigurationsI<T> {
   columns: Array<ColumnI<T>>;
 }
 
+interface PostInfoI {
+  title: string;
+  text: string;
+}
+
 /**
  * Encodes a text string as a valid component of a Uniform Resource Identifier (URI).
  * @param uriComponent A value representing an encoded URI component.

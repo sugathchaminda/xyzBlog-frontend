@@ -52,6 +52,26 @@ const selectGetChangePostResponse = () => createSelector(
   (currentState) => currentState.postChangeResponse,
 );
 
+const selectGetPostDetailsStatus = () => createSelector(
+  selectAllPostsStatState,
+  (currentState) => currentState.postDetailsStatus,
+);
+
+const selectGetPostDetailsResponse = () => createSelector(
+  selectAllPostsStatState,
+  (currentState) => currentState.postDetailsResponse,
+);
+
+const selectGetEditPostStatus = () => createSelector(
+  selectAllPostsStatState,
+  (currentState) => currentState.editPostStatus,
+);
+
+const selectGetEditPostResponse = () => createSelector(
+  selectAllPostsStatState,
+  (currentState) => currentState.editPostResponse,
+);
+
 export {
   selectGetPostsStatus,
   selectGetPostsResponse,
@@ -63,4 +83,8 @@ export {
   selectGetPostsAdminResponse,
   selectGetChangePostStatus,
   selectGetChangePostResponse,
+  selectGetPostDetailsStatus,
+  selectGetPostDetailsResponse,
+  selectGetEditPostStatus,
+  selectGetEditPostResponse,
 };

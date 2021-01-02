@@ -16,6 +16,13 @@ import {
   GET_ALL_POSTS_ADMIN_START,
   GET_ALL_POSTS_ADMIN_SUCCESS,
   GET_ALL_POSTS_ADMIN_FAILURE,
+  GET_POST_DETAILS_START,
+  GET_POST_DETAILS_SUCCESS,
+  GET_POST_DETAILS_FAILURE,
+  EDIT_POST_DETAILS_START,
+  EDIT_POST_DETAILS_SUCCESS,
+  EDIT_POST_DETAILS_FAILURE,
+  EDIT_POST_DETAILS_RESET,
 } from './listPosts.constants';
 
 const INITIAL_STATE = {
@@ -34,6 +41,12 @@ const INITIAL_STATE = {
   postChangeStatus: false,
   postChangeResponse: '',
   postChangeError: '',
+  postDetailsStatus: false,
+  postDetailsResponse: '',
+  postDetailsError: '',
+  editPostStatus: false,
+  editPostResponse: '',
+  editPostError: '',
 };
 
 export default function getAllPosts(state = INITIAL_STATE, { type, payload }: IAction) {
@@ -83,6 +96,26 @@ export default function getAllPosts(state = INITIAL_STATE, { type, payload }: IA
     case DELETE_POST_FAILURE:
       return setDeletePostError(state, payload);
 
+    case GET_POST_DETAILS_START:
+      return setPostDetailsStart(state);
+
+    case GET_POST_DETAILS_SUCCESS:
+      return setPostDetailSuccess(state, payload);
+
+    case GET_POST_DETAILS_FAILURE:
+      return setPostDetailError(state, payload);
+
+    case EDIT_POST_DETAILS_START:
+      return setEditPostDetailsStart(state);
+
+    case EDIT_POST_DETAILS_SUCCESS:
+      return setEditPostDetailsSuccess(state, payload);
+
+    case EDIT_POST_DETAILS_FAILURE:
+      return setEditPostDetailsError(state, payload);
+
+    case EDIT_POST_DETAILS_RESET:
+      return setEditPostDetailsReset(state);
     default:
       return state;
   }
@@ -188,4 +221,71 @@ const setDeletePostError = (state: IGetAllPostsReducer, payload: Object) => ({
   postDeleteStatus: false,
   postDeleteResponse: '',
   postDeleteError: payload,
+});
+
+// Get post details
+const setPostDetailsStart = (state: IGetAllPostsReducer) => ({
+  ...state,
+  editPostStatus: false,
+});
+
+const setPostDetailSuccess = (state: IGetAllPostsReducer, payload: Object) => ({
+  ...state,
+  postDetailsStatus: true,
+  postDetailsResponse: payload,
+  postDetailsError: '',
+  editPostStatus: false,
+});
+
+const setPostDetailError = (state: IGetAllPostsReducer, payload: Object) => ({
+  ...state,
+  postDetailsStatus: false,
+  postDetailsResponse: '',
+  postDetailsError: payload,
+});
+
+// Edit post details
+const setEditPostDetailsStart = (state: IGetAllPostsReducer) => ({
+  ...state,
+  postDetailsStatus: false,
+  editPostStatus: false,
+});
+
+const setEditPostDetailsSuccess = (state: IGetAllPostsReducer, payload: Object) => ({
+  ...state,
+  editPostStatus: true,
+  editPostResponse: payload,
+  editPostError: '',
+});
+
+const setEditPostDetailsError = (state: IGetAllPostsReducer, payload: Object) => ({
+  ...state,
+  editPostStatus: false,
+  editPostResponse: '',
+  editPostError: payload,
+});
+
+const setEditPostDetailsReset = (state: IGetAllPostsReducer) => ({
+  ...state,
+  getAllPostsSuccessStatus: false,
+  getAllPostsError: '',
+  getAllPosts: {},
+  getAllPostsAdminSuccessStatus: false,
+  getAllPostsAdminError: '',
+  getAllPostsAdmin: {},
+  postDeleteStatus: false,
+  postDeleteResponse: '',
+  postDeleteError: '',
+  postAddStatus: false,
+  postAddResponse: '',
+  postAddError: '',
+  postChangeStatus: false,
+  postChangeResponse: '',
+  postChangeError: '',
+  postDetailsStatus: false,
+  postDetailsResponse: '',
+  postDetailsError: '',
+  editPostStatus: false,
+  editPostResponse: '',
+  editPostError: '',
 });

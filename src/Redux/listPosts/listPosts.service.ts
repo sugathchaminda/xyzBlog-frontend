@@ -17,6 +17,12 @@ class DashboardHttp {
   static changePost = (postId, payload: Object) => Http.setMethod(httpMethods.put).setUrl(`${Endpoints.CHANGE_POST}/${postId}`)
     .setData(payload).setToken(api.getToken())
     .request();
+
+  static editPost = (postId, payload: Object) => Http.setMethod(httpMethods.put)
+    .setUrl(`${Endpoints.EDIT_POST}/${postId}`).setData(payload).setToken(api.getToken())
+    .request();
+
+  static getPostDetails = (postId) => Http.setMethod(httpMethods.get).setUrl(`${Endpoints.GET_POST_DETAILS}/${postId}`).setToken(api.getToken()).request();
 }
 
 export default DashboardHttp;

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { selectGetProfileStatus, selectGetProfileResponse } from '../../Redux/profile/profile.selectors';
 import { selectGetDeletePostStatus, selectGetDeletePostResponse } from '../../Redux/listPosts/listPosts.selectors';
-import { deletePostStart } from '../../Redux/listPosts/listPosts.actions';
+import { deletePostStart, editPostDetailsReset } from '../../Redux/listPosts/listPosts.actions';
 import { getProfileStart } from '../../Redux/profile/profile.actions';
 
 const LazyContainer = lazy(() => import('./container'));
@@ -18,6 +18,7 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = (dispatch: any) => ({
   profileStart: () => dispatch(getProfileStart()),
   getDeletePostStart: (data) => dispatch(deletePostStart(data)),
+  postDetailsReset: () => editPostDetailsReset(),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LazyContainer);

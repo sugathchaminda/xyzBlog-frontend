@@ -31,10 +31,11 @@ const useStyles = makeStyles(() => createStyles({
 
 interface Props {
   profileResponseData: any;
+  onEditPost: any;
   deletePostData: (id: string) => void;
 }
 
-const SmartTag: React.FunctionComponent<Props> = ({ profileResponseData, deletePostData }) => {
+const SmartTag: React.FunctionComponent<Props> = ({ profileResponseData, deletePostData, onEditPost }) => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [toDeleteId, setToDeleteId] = useState('');
@@ -47,6 +48,7 @@ const SmartTag: React.FunctionComponent<Props> = ({ profileResponseData, deleteP
   const onCancel = useCallback(() => {
     setOpen(false);
   }, []);
+
   const tableRows = [];
   if (profileResponseData != null && profileResponseData.posts) {
     const postData = profileResponseData.posts;
@@ -66,7 +68,7 @@ const SmartTag: React.FunctionComponent<Props> = ({ profileResponseData, deleteP
               label="Edit"
               className="primary"
               style={{ width: '150px', marginRight: '10px' }}
-              // onClick={() => routeAssignTag(accountId, driverId, id)}
+              onClick={() => onEditPost(id)}
             />
             <Button
               variant="contained"

@@ -14,6 +14,13 @@ import {
   GET_ALL_POSTS_ADMIN_START,
   GET_ALL_POSTS_ADMIN_SUCCESS,
   GET_ALL_POSTS_ADMIN_FAILURE,
+  GET_POST_DETAILS_START,
+  GET_POST_DETAILS_SUCCESS,
+  GET_POST_DETAILS_FAILURE,
+  EDIT_POST_DETAILS_START,
+  EDIT_POST_DETAILS_SUCCESS,
+  EDIT_POST_DETAILS_FAILURE,
+  EDIT_POST_DETAILS_RESET,
 } from './listPosts.constants';
 
 // Get all posts
@@ -92,4 +99,40 @@ export const deletePostSuccess = (payload: Object) => ({
 export const deletePostError = (payload: Object) => ({
   type: DELETE_POST_FAILURE,
   payload,
+});
+
+// Get post by id
+export const getPostDetailsStart = (payload: Object) => ({
+  type: GET_POST_DETAILS_START,
+  payload,
+});
+
+export const getPostDetailsSuccess = (payload: Object) => ({
+  type: GET_POST_DETAILS_SUCCESS,
+  payload,
+});
+
+export const getPostDetailsError = (payload: Object) => ({
+  type: GET_POST_DETAILS_FAILURE,
+  payload,
+});
+
+// Edit post details
+export const editPostDetailsStart = (payload: Object) => ({
+  type: EDIT_POST_DETAILS_START,
+  payload,
+});
+
+export const editPostDetailsSuccess = (payload: Object) => ({
+  type: EDIT_POST_DETAILS_SUCCESS,
+  payload,
+});
+
+export const editPostDetailsError = (payload: Object) => ({
+  type: EDIT_POST_DETAILS_FAILURE,
+  payload,
+});
+
+export const editPostDetailsReset = () => ({
+  type: EDIT_POST_DETAILS_RESET,
 });

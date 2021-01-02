@@ -2,6 +2,7 @@ import SignIn from '../pages/signin';
 import SignUp from '../pages/signup';
 import ListPosts from '../pages/listPosts';
 import AddPost from '../pages/listPosts/addNewPost';
+import EditPost from '../pages/listPosts/editpost';
 import Profile from '../pages/profile';
 import AllPosts from '../pages/managePosts';
 import AllUsers from '../pages/manageUsers';
@@ -30,6 +31,10 @@ const privateRouteMap = {
   ListPosts: {
     path: '/list/posts',
     component: ListPosts,
+  },
+  EditPost: {
+    path: '/edit/post/:postId',
+    component: EditPost,
   },
   AddPost: {
     path: '/add/post',
