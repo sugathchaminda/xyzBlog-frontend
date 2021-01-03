@@ -6,8 +6,10 @@ import {
   selectGetUsersResponse,
   selectGetAssignAdminRoleStatus,
   selectGetAssignAdminRoleResponse,
+  selectGetUpdateUserStatus,
+  selectGetUpdateUserResponse,
 } from '../../Redux/manageUsers/manageUsers.selectors';
-import { getAllUsersStart, assignAdminRoleStart } from '../../Redux/manageUsers/manageUsers.actions';
+import { getAllUsersStart, assignAdminRoleStart, updateUserStart } from '../../Redux/manageUsers/manageUsers.actions';
 
 const LazyContainer = lazy(() => import('./container'));
 
@@ -16,11 +18,14 @@ const mapStateToProps = createStructuredSelector({
   getUsersResponse: selectGetUsersResponse(),
   getAssignAdminRoleStatus: selectGetAssignAdminRoleStatus(),
   getAssignAdminRoleResponse: selectGetAssignAdminRoleResponse(),
+  getUpdateUserStatus: selectGetUpdateUserStatus(),
+  getUpdateUserResponse: selectGetUpdateUserResponse(),
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
   allUsersStart: () => dispatch(getAllUsersStart()),
   assignAdminRoleStartFunc: (data) => dispatch(assignAdminRoleStart(data)),
+  updateUserStartFunc: (data) => dispatch(updateUserStart(data)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LazyContainer);

@@ -6,8 +6,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Grid from '@material-ui/core/Grid';
 import Button from 'shared/form/button';
-import React, { useState, useCallback } from 'react';
-import Alert from 'shared/common/alert';
+import React from 'react';
 import customstyles from './styles.css';
 
 const useStyles = makeStyles(() => createStyles({
@@ -32,21 +31,11 @@ const useStyles = makeStyles(() => createStyles({
 interface Props {
   allUsersResponseData: object;
   assignAdminRole: (values: any) => void;
+  updateUser: (userId: string, status: string) => void;
 }
 
-const ManageUser: React.FunctionComponent<Props> = ({ allUsersResponseData, assignAdminRole }) => {
+const ManageUser: React.FunctionComponent<Props> = ({ allUsersResponseData, assignAdminRole, updateUser }) => {
   const classes = useStyles();
-  const [open, setOpen] = useState(false);
-  const [toDeleteId, setToDeleteId] = useState('');
-
-  const onSuccess = useCallback(() => {
-    //  deletePostData(toDeleteId);
-    setOpen(false);
-  }, [toDeleteId]);
-
-  const onCancel = useCallback(() => {
-    setOpen(false);
-  }, []);
 
   const tableRows = [];
   if (allUsersResponseData != null && allUsersResponseData) {
@@ -75,15 +64,12 @@ const ManageUser: React.FunctionComponent<Props> = ({ allUsersResponseData, assi
               label="Unblock"
               className="primary"
               style={{ width: '150px', marginRight: '10px' }}
-              // onClick={() => changePostData('Rejected', id)}
+              onClick={() => updateUser(id, 'Active')}
             />
             <Button
               variant="contained"
               label="Block"
-              onClick={() => {
-                setOpen(true);
-                setToDeleteId(id);
-              }}
+              onClick={() => updateUser(id, 'Blocked')}
               className="primary-red"
               style={{ width: '150px', marginRight: '10px' }}
             />
@@ -103,7 +89,7 @@ const ManageUser: React.FunctionComponent<Props> = ({ allUsersResponseData, assi
           spacing={1}
           className={classes.subHeaderContainer}
         >
-          <h3 className={classes.dashboardHeader}>Manage Blog Posts</h3>
+          <h3 className={classes.dashboardHeader}>Manage Users</h3>
         </Grid>
         <Grid
           item
@@ -136,12 +122,6 @@ const ManageUser: React.FunctionComponent<Props> = ({ allUsersResponseData, assi
 
         </Grid>
       </Grid>
-      <Alert
-        open={open}
-        message="Are you sure you want to delete this post?"
-        onSuccess={onSuccess}
-        onCancel={onCancel}
-      />
     </Grid>
   );
 };

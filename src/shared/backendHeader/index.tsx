@@ -13,8 +13,10 @@ import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
+import { NotificationContainer, NotificationManager } from 'react-notifications';
 import { signOutStart } from '../../Redux/auth/auth.actions';
 import { selectGetSignOutStatus } from '../../Redux/auth/auth.selectors';
+import { selectGetGlobalError, selectGetGlobalNotify } from '../../Redux/global/global.selectors';
 
 const useStyles = makeStyles(() => ({
 
@@ -41,9 +43,11 @@ const useStyles = makeStyles(() => ({
 interface Props {
   doSignOut: () => any;
   getSignOutStatus: boolean;
+  getGlobalError?: string;
+  getGlobalNotify: string;
 }
 
-function BackendHeader({ doSignOut, getSignOutStatus }: Props) {
+function BackendHeader({ doSignOut, getSignOutStatus, getGlobalError, getGlobalNotify }: Props) {
   const classes = useStyles();
   const history = useHistory();
 
@@ -86,6 +90,16 @@ function BackendHeader({ doSignOut, getSignOutStatus }: Props) {
     prevOpen.current = open;
   }, [open]);
 
+  useEffect(() => {
+    NotificationManager.listNotify.map((notify) => NotificationManager.remove(notify));
+    if (getGlobalError) {
+      NotificationManager.error(getGlobalError);
+    }
+    if (getGlobalNotify) {
+      NotificationManager.success(getGlobalNotify);
+    }
+  }, [getGlobalError, getGlobalNotify]);
+
   const onLogoutClick = () => {
     doSignOut();
   };
@@ -124,12 +138,15 @@ function BackendHeader({ doSignOut, getSignOutStatus }: Props) {
           )}
         </Popper>
       </Grid>
+      <NotificationContainer />
     </Grid>
   );
 }
 
 const mapStateToProps = createStructuredSelector({
   getSignOutStatus: selectGetSignOutStatus(),
+  getGlobalError: selectGetGlobalError(),
+  getGlobalNotify: selectGetGlobalNotify(),
 });
 
 const mapDispatchToProps = (dispatch: any) => ({

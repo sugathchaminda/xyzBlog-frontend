@@ -7,6 +7,9 @@ import {
   ASSIGN_ADMIN_ROLE_START,
   ASSIGN_ADMIN_ROLE_SUCCESS,
   ASSIGN_ADMIN_ROLE_FAILURE,
+  UPDATE_USERS_START,
+  UPDATE_USERS_SUCCESS,
+  UPDATE_USERS_FAILURE,
 } from './manageUsers.constants';
 
 const INITIAL_STATE = {
@@ -16,6 +19,9 @@ const INITIAL_STATE = {
   assignAdminRoleStatus: false,
   assignAdminRoleError: '',
   assignAdminRole: {},
+  updateUserStatus: false,
+  updateUserError: '',
+  updateUser: {},
 };
 
 export default function manageUsers(state = INITIAL_STATE, { type, payload }: IAction) {
@@ -38,6 +44,14 @@ export default function manageUsers(state = INITIAL_STATE, { type, payload }: IA
     case ASSIGN_ADMIN_ROLE_FAILURE:
       return setAdminRoleError(state, payload);
 
+    case UPDATE_USERS_START:
+      return setUserUpdateStart(state);
+
+    case UPDATE_USERS_SUCCESS:
+      return setUserUpdateSuccess(state, payload);
+
+    case UPDATE_USERS_FAILURE:
+      return setUserUpdateError(state, payload);
     default:
       return state;
   }
@@ -47,6 +61,7 @@ export default function manageUsers(state = INITIAL_STATE, { type, payload }: IA
 const setAllUsersStart = (state: IGetAllUsersReducer) => ({
   ...state,
   assignAdminRoleStatus: false,
+  updateUserStatus: false,
 });
 
 const setAllUsersSuccess = (state: IGetAllUsersReducer, payload: Object) => ({
@@ -67,6 +82,7 @@ const setAllUsersError = (state: IGetAllUsersReducer, payload: Object) => ({
 const setAdminRoleStart = (state: IGetAllUsersReducer) => ({
   ...state,
   getAllUsersStatus: false,
+  updateUserStatus: false,
 });
 
 const setAdminRoleSuccess = (state: IGetAllUsersReducer, payload: Object) => ({
@@ -81,4 +97,25 @@ const setAdminRoleError = (state: IGetAllUsersReducer, payload: Object) => ({
   assignAdminRoleStatus: false,
   assignAdminRoleError: payload,
   assignAdminRole: {},
+});
+
+// Update users
+const setUserUpdateStart = (state: IGetAllUsersReducer) => ({
+  ...state,
+  getAllUsersStatus: false,
+  assignAdminRoleStatus: false,
+});
+
+const setUserUpdateSuccess = (state: IGetAllUsersReducer, payload: Object) => ({
+  ...state,
+  updateUserStatus: true,
+  updateUserError: '',
+  updateUser: payload,
+});
+
+const setUserUpdateError = (state: IGetAllUsersReducer, payload: Object) => ({
+  ...state,
+  updateUserStatus: false,
+  updateUserError: payload,
+  updateUser: {},
 });

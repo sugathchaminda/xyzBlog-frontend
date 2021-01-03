@@ -68,9 +68,7 @@ function* addPostStart({ payload }: any) {
     if (addPostResponse.status === 201) {
       yield put(addPostSuccess(addPostResponse.data.data));
     } else if (addPostResponse.status === 401) {
-      api.clearToken();
-      yield put(setErrorRequest('Invalid or missing authentication token'));
-      yield put(signOutSuccess());
+      yield put(setErrorRequest(addPostResponse.data.error));
     } else {
       yield put(setErrorRequest('Internal server error'));
     }

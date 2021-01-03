@@ -22,9 +22,21 @@ const selectGetAssignAdminRoleResponse = () => createSelector(
   (currentState) => currentState.assignAdminRole,
 );
 
+const selectGetUpdateUserStatus = () => createSelector(
+  selectManageUsersState,
+  (currentState) => currentState.updateUserStatus,
+);
+
+const selectGetUpdateUserResponse = () => createSelector(
+  selectManageUsersState,
+  (currentState) => currentState.updateUser,
+);
+
 export {
   selectGetUsersStatus,
   selectGetUsersResponse,
   selectGetAssignAdminRoleStatus,
   selectGetAssignAdminRoleResponse,
+  selectGetUpdateUserStatus,
+  selectGetUpdateUserResponse,
 };
