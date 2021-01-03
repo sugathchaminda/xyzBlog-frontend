@@ -2,6 +2,9 @@
 
 ## Technology
 This application developed from React js, typescript, redux-saga, material-ui
+
+## Configuration
+Change .env `REACT_APP_XYZ_SERVICE` variable to your back end (ex - http://localhost:5000)
 ## Available Scripts
 
 In the project directory, you can run:

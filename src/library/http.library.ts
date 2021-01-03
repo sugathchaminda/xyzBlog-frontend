@@ -3,7 +3,7 @@ import axios from 'axios';
 import { httpMethods } from 'enums';
 import { IHeaders } from 'types/data.types';
 import store from 'Redux/store';
-import { setLoaderRequest, removeErrorRequest, removeLoaderRequest } from 'Redux/global/global.actions';
+import { setLoaderRequest, removeErrorRequest, removeLoaderRequest, removeNotifyRequest } from 'Redux/global/global.actions';
 
 class Http {
   method: httpMethods;
@@ -57,8 +57,9 @@ class Http {
     try {
       store.dispatch(setLoaderRequest());
       store.dispatch(removeErrorRequest());
+      store.dispatch(removeNotifyRequest());
 
-      let url = process.env.REACT_APP_PBC_ADMIN_ACCOUNT_SERVICE + this.url;
+      let url = process.env.REACT_APP_XYZ_SERVICE + this.url;
       if (this.method === httpMethods.get) url += this.serializeParams(this.data);
 
       const headers: IHeaders = {

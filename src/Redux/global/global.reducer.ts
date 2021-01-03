@@ -1,5 +1,5 @@
 import { IAction } from 'types/data.types';
-import { SET_LOADER, REMOVE_LOADER, SET_ERROR, REMOVE_ERROR, HEADER_FOOTER_VISIBILITY, MENU_VISIBILITY, SET_NOTIFY } from './global.constants';
+import { SET_LOADER, REMOVE_LOADER, SET_ERROR, REMOVE_ERROR, HEADER_FOOTER_VISIBILITY, MENU_VISIBILITY, SET_NOTIFY, REMOVE_NOTIFY } from './global.constants';
 
 interface State {
   isFetching: boolean;
@@ -33,6 +33,11 @@ export default function global(state = initialState, { type, payload }: IAction)
       return {
         ...state,
         notifyMessage: payload,
+      };
+    case REMOVE_NOTIFY:
+      return {
+        ...state,
+        notifyMessage: '',
       };
     case SET_ERROR:
       return {

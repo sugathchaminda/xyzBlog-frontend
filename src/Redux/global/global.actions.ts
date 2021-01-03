@@ -1,4 +1,4 @@
-import { SET_LOADER, REMOVE_LOADER, SET_ERROR, REMOVE_ERROR, HEADER_FOOTER_VISIBILITY, MENU_VISIBILITY, SET_NOTIFY } from './global.constants';
+import { SET_LOADER, REMOVE_LOADER, SET_ERROR, REMOVE_ERROR, HEADER_FOOTER_VISIBILITY, MENU_VISIBILITY, SET_NOTIFY, REMOVE_NOTIFY } from './global.constants';
 
 export const setLoaderRequest = () => ({
   type: SET_LOADER,
@@ -20,6 +20,10 @@ export const setNotifyRequest = (payload: Object) => ({
 
 export const removeErrorRequest = () => ({
   type: REMOVE_ERROR,
+});
+
+export const removeNotifyRequest = () => ({
+  type: REMOVE_NOTIFY,
 });
 
 export const setHeaderFooterVisibility = () => ({
